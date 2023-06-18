@@ -1,92 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="{!! asset('assets/css/styleSidebar.css') !!}" rel="stylesheet">
+  <head>
+  	<title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</head>
-<body>
-    <div class="container-sidebar">
-        <div class="sidebar">
-            <div class="header">
-              <div class="list-item">
-                <a href="#">
-                  <img src="" alt="" class="icon">
-                  <span clas="description-header">Halaman Admin</span>
-                </a>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="{!! asset('assets/css/styleSidebar2.css') !!}" rel="stylesheet">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="responsive show">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+				<div class="p-4">
+		  		<h1><a href="index.html" class="logo">Meraki <span>Halaman Admin</span></a></h1>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="{{ route('admin.index') }}"><span class="fa fa-home mr-3"></span>Beranda</a>
+	          </li>
+	          <li>
+	              <a href="{{ route('admin.showDataPengguna') }}"><span class="fa fa-user mr-3"></span>Data Pengguna</a>
+	          </li>
+	          <li>
+              <a href="{{ route('motif.show') }}"><span class="fa fa-briefcase mr-3"></span>Data Motif Sasirangan</a>
+	          </li>
+	          <li>
+              <a href="{{ route('style.show') }}"><span class="fa fa-sticky-note mr-3"></span>Data Modern Style</a>
+	          </li>
+	          <li>
+              <a href="{{ route('datakuis.show') }}"><span class="fa fa-cogs mr-3"></span>Data Soal Kuis</a>
+	          </li>
+	          <li>
+              <a href="{{ route('datapoint.show') }}"><span class="fa fa-paper-plane mr-3"></span>Data Score Kuis</a>
+	          </li>
+	        </ul>
+
+	        <div class="mb-5">
+						<h3 class="h6 mb-3"><a href="{{ route('login.logout') }}" class="btn btn-danger">Logout</a></h3>
+					</div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5 shifted">
+        <div class="container">
+          <div class="row">
+              <div class="col">
+                  <h2>Selamat Datang, {{ Auth::user()->name }}</h2>
+				  <img src="{!! asset('assets/img/backgroundLanding.jpg') !!}" alt="Baju Sasirangan" width="600px" height="300px">
+				  <p align="justify" style="color: black">Anda terdaftar sebagai admin. Anda dapat mengubah data:</p>
+				  <ul style="color: black">
+					<li>Data Pengguna</li>
+					<li>Data Motif Sasirangan</li>
+					<li>Data Referensi Modern Style</li>
+					<li>Data Soal Kuis</li>
+					<li>Data Hasil <i>Score</i> Kuis Pengguna</li>
+				  </ul>
               </div>
-  
-              <div class="ilustration">
-                <img src="{!! asset('assets/img/icon_sidebar.png') !!}" alt="icon sidebar">
-              </div>
-      
-            </div>
-            <div class="main">
-              <div class="list-item">
-                  <a href="{{ route('admin.index') }}">
-                    <img src="{!! asset('assets/img/home.png') !!}" alt="icon home" class="icon" width="20px" height="20px">
-                    <span class="description">Beranda Admin</span>
-                  </a>
-                </div>
-              <div class="list-item">
-                <a href="{{ route('admin.showDataPengguna') }}">
-                  <img src="{!! asset('assets/img/pengguna.png') !!}" alt="icon user" class="icon" width="20px" height="20px">
-                  <span class="description">Data Pengguna</span>
-                </a>
-              </div>
-      
-              <div class="list-item">
-                <a href="">
-                  <img src="{!! asset('assets/img/pattern.png') !!}" alt="icon motif" class="icon" width="20px" height="20px">
-                  <span class="description">Data Motif Sasirangan</span>
-        
-                </a>
-              </div>
-      
-              <div class="list-item">
-                <a href="">
-                  <img src="{!! asset('assets/img/style.png') !!}" alt="icon style" class="icon" width="20px" height="20px">
-                  <span class="description">Data Modern Style</span>
-                </a>
-              </div>
-              <div class="list-item">
-                  <a href="">
-                      <img src="{!! asset('assets/img/kuis.png') !!}" alt="icon kuis" class="icon" width="20px" height="20px">
-                      <span class="description">Data Soal Kuis</span>
-                  </a>
-              </div>
-              <div class="list-item">
-                  <a href="">
-                      <img src="{!! asset('assets/img/jawaban.png') !!}" alt="icon jawaban" class="icon" width="20px" height="20px">
-                      <span class="description">Data Jawaban</span>
-                  </a>
-              </div>
-              <div class="list-item">
-                  <a href="">
-                      <img src="{!! asset('assets/img/nilai.webp') !!}" alt="icon poin" class="icon" width="20px" height="20px">
-                      <span class="description">Data Point</span>
-                  </a>
-              </div>
-              <div class="logout">
-                  <a href="{{ route('login.logout') }}" class="btn btn-danger">Logout</a>
-              </div>
-            </div>
           </div>
-        <div class="main-content">
-        
-            <div class="container mt-3">
-                <div class="row">
-                    <div class="col">
-                        <h1>Selamat Datang, {{ Auth::user()->name }}</h1>
-                    </div>
-                </div>
-            </div>
-            </div>
+      </div>
+		</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</body>
+	<script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
+	<script src="{!! asset('assets/js/popper.js') !!}"></script>
+	<script src="{!! asset('assets/js/bootstrap.min.js') !!}"></script>
+	<script src="{!! asset('assets/js/main2.js') !!}"></script>
+	<script>
+		$(document).ready(function() {
+		  $('#sidebarCollapse').on('click', function() {
+			$('#sidebar').toggleClass('show');
+			$('#content').toggleClass('shifted');
+		  });
+		});
+	  </script>
+  </body>
 </html>

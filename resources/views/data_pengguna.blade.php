@@ -1,121 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="{!! asset('assets/css/styleSidebar.css') !!}" rel="stylesheet">
+  <head>
+  	<title>Data Pengguna</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-</head>
-<body>
-    <div class="container-sidebar">
-
-        <div class="sidebar">
-          <div class="header">
-            <div class="list-item">
-              <a href="#">
-                <img src="" alt="" class="icon">
-                <span clas="description-header">Halaman Admin</span>
-              </a>
-            </div>
-
-            <div class="ilustration">
-              <img src="{!! asset('assets/img/icon_sidebar.png') !!}" alt="icon sidebar">
-            </div>
-    
-          </div>
-          <div class="main">
-            <div class="list-item">
-                <a href="{{ route('admin.index') }}">
-                  <img src="{!! asset('assets/img/home.png') !!}" alt="icon home" class="icon" width="20px" height="20px">
-                  <span class="description">Beranda Admin</span>
-                </a>
-              </div>
-            <div class="list-item">
-              <a href="{{ route('admin.showDataPengguna') }}">
-                <img src="{!! asset('assets/img/pengguna.png') !!}" alt="icon user" class="icon" width="20px" height="20px">
-                <span class="description">Data Pengguna</span>
-              </a>
-            </div>
-    
-            <div class="list-item">
-              <a href="">
-                <img src="{!! asset('assets/img/pattern.png') !!}" alt="icon motif" class="icon" width="20px" height="20px">
-                <span class="description">Data Motif Sasirangan</span>
-      
-              </a>
-            </div>
-    
-            <div class="list-item">
-              <a href="">
-                <img src="{!! asset('assets/img/style.png') !!}" alt="icon style" class="icon" width="20px" height="20px">
-                <span class="description">Data Modern Style</span>
-              </a>
-            </div>
-            <div class="list-item">
-                <a href="">
-                    <img src="{!! asset('assets/img/kuis.png') !!}" alt="icon kuis" class="icon" width="20px" height="20px">
-                    <span class="description">Data Soal Kuis</span>
-                </a>
-            </div>
-            <div class="list-item">
-                <a href="">
-                    <img src="{!! asset('assets/img/jawaban.png') !!}" alt="icon jawaban" class="icon" width="20px" height="20px">
-                    <span class="description">Data Jawaban</span>
-                </a>
-            </div>
-            <div class="list-item">
-                <a href="">
-                    <img src="{!! asset('assets/img/nilai.webp') !!}" alt="icon poin" class="icon" width="20px" height="20px">
-                    <span class="description">Data Point</span>
-                </a>
-            </div>
-            <div class="logout">
-                <a href="{{ route('login.logout') }}" class="btn btn-danger">Logout</a>
-            </div>
-          </div>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+		<link href="{!! asset('assets/css/styleSidebar2.css') !!}" rel="stylesheet">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="responsive show">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
         </div>
-        <div class="main-content">
-        
-            <div class="container mt-3">
-                <div class="row">
-                    <div class="col-md-10">
-                        <center><h2>Data Pengguna</h2></center>
-        
-                        <table class="table" style="margin-top: 5%">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No.</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Level</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $n= 1;
-                                @endphp
-                                @foreach ($users as $user)
-                                <tr>
-                                    <th scope="row">{{ $n }}</th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ ($user->is_admin)== 1 ? "Admin" : "Mahasiswa" }}</td>
-                                </tr>
-                                @php
-                                    $n++;
-                                @endphp
-                                @endforeach
-        
-                            </tbody>
-                          </table>
-                    </div>
-                </div>
-            </div>
-            </div>
+				<div class="p-4">
+		  		<h1><a href="index.html" class="logo">Meraki<span>Halaman Admin</span></a></h1>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="{{ route('admin.index') }}"><span class="fa fa-home mr-3"></span>Beranda</a>
+	          </li>
+	          <li>
+	              <a href="{{ route('admin.showDataPengguna') }}"><span class="fa fa-user mr-3"></span>Data Pengguna</a>
+	          </li>
+	          <li>
+              <a href="{{ route('motif.show') }}"><span class="fa fa-cut mr-3"></span>Data Motif Sasirangan</a>
+	          </li>
+	          <li>
+              <a href="{{ route('style.show') }}"><span class="fa fa-shirtsinbulk mr-3"></span>Data Modern Style</a>
+	          </li>
+	          <li>
+              <a href="{{ route('datakuis.show') }}"><span class="fa fa-pencil mr-3"></span>Data Soal Kuis</a>
+	          </li>
+	          <li>
+              <a href="{{ route('datapoint.show') }}"><span class="fa fa-trophy mr-3"></span>Data Score Kuis</a>
+	          </li>
+	        </ul>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</body>
+	        <div class="mb-5">
+						<h3 class="h6 mb-3"><a href="{{ route('login.logout') }}" class="btn btn-danger">Logout</a></h3>
+					</div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5 shifted">
+        <div class="container mt-3">
+          <div class="row">
+              <div class="col-md-10">
+                  <center><h2>Data Pengguna</h2></center>
+
+                  <a href="{{ route('admin.create') }}" class="btn btn-success">Tambah Data</a>
+  
+                  <table class="table" style="margin-top: 5%">
+                      <thead>
+                          <tr align="center">
+                              <th scope="col">No.</th>
+                              <th scope="col">Nama</th>
+                              <th scope="col">Email</th>
+                              <th scope="col">Level</th>
+                              <th scope="col">Aksi</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @php
+                              $n= 1;
+                          @endphp
+                          @foreach ($users as $user)
+                          <tr align="center">
+                              <th scope="row">{{ $n }}</th>
+                              <td>{{ $user->name }}</td>
+                              <td>{{ $user->email }}</td>
+                              <td>{{ ($user->is_admin)== 1 ? "Admin" : "User" }}</td>
+                              <td>
+                                <div style="display: flex; gap: 10px;">
+                                    <a href="{{ route('admin.edit', $user->id) }}" class="btn btn-primary">Edit</a>
+                                    <form action="{{ route('admin.destroy', $user->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ini?')">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
+                          </tr>
+                          @php
+                              $n++;
+                          @endphp
+                          @endforeach
+  
+                      </tbody>
+                    </table>
+              </div>
+          </div>
+      </div>
+      </div>
+		</div>
+
+	<script src="{!! asset('assets/js/jquery.min.js') !!}"></script>
+	<script src="{!! asset('assets/js/popper.js') !!}"></script>
+	<script src="{!! asset('assets/js/bootstrap.min.js') !!}"></script>
+	<script src="{!! asset('assets/js/main2.js') !!}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#sidebarCollapse').on('click', function() {
+        $('#sidebar').toggleClass('show');
+        $('#content').toggleClass('shifted');
+      });
+    });
+  </script>
+  </body>
 </html>
+

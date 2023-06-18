@@ -397,8 +397,8 @@ h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 60vh;
-  background: url("../img/backgroundTop.png") top center;
+  height: 88vh;
+  background: url("../img/backgroundLanding.jpg") top center;
   background-size: cover;
   position: relative;
 }
@@ -553,7 +553,7 @@ section {
 }
 
 .about .icon-box {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .about .icon-box .icon {
@@ -798,7 +798,7 @@ section {
 .services .icon-box {
   text-align: center;
   border: 1px solid #e5f0d5;
-  padding: 80px 20px;
+  padding: 40px 20px;
   transition: all ease-in-out 0.3s;
   background: #fff;
 }
@@ -852,6 +852,27 @@ section {
 
 .services .icon-box:hover .icon {
   border-color: #8fc04e;
+}
+
+.row {
+  margin-left: 5%;
+}
+
+.rowtim {
+  margin-left: 20%;
+}
+
+@media screen and (max-width: 768px) {
+ .row {
+  margin-left: 6%;
+  /* display: grid;
+  grid-template-columns: auto auto; */
+ }
+
+ .rowtim {
+  margin-left: 0;
+ }
+
 }
 
 /*--------------------------------------------------------------
@@ -1021,6 +1042,18 @@ section {
   padding: 0;
 }
 
+.portfolio-container {
+  margin-left: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-container {
+    margin-left: 1%;
+    /* display: grid;
+    grid-template-columns: auto auto; */
+  }
+}
+
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
@@ -1114,7 +1147,7 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
   padding: 80px 0;
-  background: url("../img/testimonials-bg.jpg") no-repeat;
+  background: url("../img/bg-kuis.jpg") no-repeat;
   background-position: center center;
   background-size: cover;
   position: relative;
@@ -1606,7 +1639,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: url("../img/footer-bg.jpg") center center no-repeat;
+  background: url("../img/footer.jpg") center center no-repeat;
   color: #fff;
   font-size: 14px;
   position: relative;
